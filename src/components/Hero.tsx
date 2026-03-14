@@ -82,12 +82,12 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              <button onClick={() => document.getElementById('resume')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-6 py-3 rounded-lg font-medium transition-colors duration-200"
                 style={{ background: '#14b8a6', color: '#0a1628', boxShadow: '0 8px 24px rgba(20,184,166,0.3)' }}
                 onMouseEnter={e => (e.currentTarget.style.background = '#0f9688')}
                 onMouseLeave={e => (e.currentTarget.style.background = '#14b8a6')}>
-                View My Work
+                View My Experience
               </button>
               <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-6 py-3 rounded-lg font-medium transition-all duration-200"

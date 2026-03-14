@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+:root {
+  --primary:      #14b8a6;
+  --primary-dark: #0f9688;
+  --accent:       #2dd4bf;
+  --dark:         #0a1628;
+  --dark-2:       #0d1e33;
+  --dark-3:       #134e4a;
+  --muted:        #5eead4;
+  --light:        #ccfbf1;
+}
+
+* { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--dark);
+  color: #ccfbf1;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dark-2); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* ── Section Titles ── */
+.section-title {
+  @apply text-center mb-16;
+}
+.section-title h2 {
+  @apply text-4xl font-bold text-white font-display mb-4 relative inline-block;
+}
+.section-title h2::after {
+  content: '';
+  @apply absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full;
+  background: var(--primary);
+}
+.section-title p { @apply text-lg max-w-2xl mx-auto; color: #5eead4; }
+
+/* ── Skill Bars ── */
+.skill-bar-fill {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.skill-bar-fill.animate { width: var(--target-width); }
+
+/* ── Typed cursor ── */
+.typed-cursor { color: var(--accent); font-weight: 300; }
+
+/* ── Hero gradient circles ── */
+.hero-circle-1 {
+  background: radial-gradient(circle, rgba(20,184,166,0.15) 0%, transparent 70%);
+}
+.hero-circle-2 {
+  background: radial-gradient(circle, rgba(45,212,191,0.1) 0%, transparent 70%);
+}
+
+/* ── Profile ring ── */
+.profile-ring {
+  background: conic-gradient(from 180deg, var(--primary), var(--accent), var(--primary));
+}
+
+/* ── Glassmorphism card ── */
+.glass-card {
+  background: rgba(13, 30, 51, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(20,184,166,0.12);
+}
+
+/* ── Portfolio hover overlay ── */
+.portfolio-item:hover .portfolio-overlay { opacity: 1; }
+.portfolio-overlay { opacity: 0; transition: opacity 0.3s ease; }
+
+/* ── Service card hover ── */
+.service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(20,184,166,0.18);
+}
+
+/* ── Counter number ── */
+.counter-num { font-variant-numeric: tabular-nums; }
+
+/* ── Testimonial card ── */
+.testimonial-highlight {
+  background: linear-gradient(135deg, rgba(20,184,166,0.12), rgba(45,212,191,0.08));
+  border-color: rgba(20,184,166,0.25) !important;
+}
+
+/* ── Contact form inputs ── */
+.form-input {
+  @apply w-full rounded-lg px-4 py-3 text-white placeholder-teal-700 focus:outline-none transition-colors duration-200;
+  background: rgba(10,22,40,0.8);
+  border: 1px solid #134e4a;
+}
+.form-input:focus { border-color: var(--primary); }

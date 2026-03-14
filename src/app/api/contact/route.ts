@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: `"Charm Bautista" <${process.env.GMAIL_USER}>`,
       to: email,
-      subject: `Thanks for reaching out, ${name.split(' ')[0]}! — Charm Bautista`,
+      subject: `Thanks for reaching out, ${name.split(' ')[0]}! — Charm`,
       html: `
         <!DOCTYPE html>
         <html>

@@ -41,21 +41,19 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-24" style={{ background: 'rgba(13,30,51,0.5)' }}>
+    <section id="contact" className="py-24" style={{ background: 'var(--section-alt)' }}>
       <div className="max-w-6xl mx-auto px-6">
-
-        <div className="section-title">
-          <h2>Contact</h2>
-          <p>Have a project in mind or want to discuss opportunities? I'd love to hear from you.</p>
+        <div className="section-title"><h2>Contact</h2>
+          <p>Have a project in mind or want to discuss opportunities? I&apos;d love to hear from you.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
           {/* Info panel */}
           <div className="lg:col-span-2">
-            <div className="glass-card rounded-2xl p-7 h-full">
-              <h3 className="text-xl font-bold font-display mb-2" style={{ color: '#ccfbf1' }}>Let&apos;s Connect</h3>
-              <p className="text-sm leading-relaxed mb-8" style={{ color: '#5eead4' }}>
+            <div className="glass-card rounded-2xl p-7 h-full" style={{ background: 'var(--info-panel-bg)' }}>
+              <h3 className="text-xl font-bold font-display mb-2" style={{ color: 'var(--text-heading)' }}>Let&apos;s Connect</h3>
+              <p className="text-sm leading-relaxed mb-8" style={{ color: 'var(--text-secondary)' }}>
                 Open to full-time roles, consulting, and technical collaborations in Java backend development, API integration, and enterprise systems.
               </p>
               <div className="space-y-5">
@@ -78,22 +76,22 @@ export default function ContactForm() {
                 ].map(item => (
                   <div key={item.label} className="flex items-start gap-4">
                     <div className="w-10 h-10 flex-shrink-0 rounded-xl flex items-center justify-center"
-                      style={{ background: 'rgba(20,184,166,0.1)', border: '1px solid rgba(20,184,166,0.2)' }}>
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} style={{ color: '#14b8a6' }}>
+                      style={{ background: 'var(--badge-bg)', border: '1px solid var(--badge-border)' }}>
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} style={{ color: 'var(--primary)' }}>
                         <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-wider mb-0.5" style={{ color: '#134e4a' }}>{item.label}</p>
-                      {item.lines.map(line => <p key={line} className="text-sm" style={{ color: '#a7f3d0' }}>{line}</p>)}
+                      <p className="text-xs uppercase tracking-wider mb-0.5" style={{ color: 'var(--detail-label)' }}>{item.label}</p>
+                      {item.lines.map(line => <p key={line} className="text-sm" style={{ color: 'var(--text-secondary)' }}>{line}</p>)}
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Social links */}
-              <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(19,78,74,0.5)' }}>
-                <p className="text-xs uppercase tracking-widest mb-3" style={{ color: '#134e4a' }}>Find me online</p>
+              <div className="mt-8 pt-6" style={{ borderTop: '1px solid var(--border)' }}>
+                <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--detail-label)' }}>Find me online</p>
                 <div className="flex gap-3">
                   {[
                     { href: siteData.linkedin, icon: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z', label: 'LinkedIn' },
@@ -101,11 +99,10 @@ export default function ContactForm() {
                     { href: 'mailto:' + siteData.email, icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', label: 'Email' },
                   ].map(s => (
                     <a key={s.label} href={s.href} target={s.href.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer"
-                      aria-label={s.label}
-                      className="w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-200"
-                      style={{ background: 'rgba(19,78,74,0.4)', color: '#5eead4' }}
-                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#14b8a6'; (e.currentTarget as HTMLElement).style.color = '#0a1628' }}
-                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(19,78,74,0.4)'; (e.currentTarget as HTMLElement).style.color = '#5eead4' }}>
+                      aria-label={s.label} className="w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-200"
+                      style={{ background: 'var(--social-bg)', color: 'var(--social-text)', border: '1px solid var(--border)' }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'var(--primary)'; (e.currentTarget as HTMLElement).style.color = 'var(--bg)'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--primary)' }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'var(--social-bg)'; (e.currentTarget as HTMLElement).style.color = 'var(--social-text)'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)' }}>
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                         <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
                       </svg>
@@ -119,13 +116,13 @@ export default function ContactForm() {
           {/* Form */}
           <div className="lg:col-span-3">
             <div className="glass-card rounded-2xl p-7">
-              <h3 className="text-xl font-bold font-display mb-2" style={{ color: '#ccfbf1' }}>Send a Message</h3>
-              <p className="text-sm mb-7" style={{ color: '#5eead4' }}>Fill in the form and I&apos;ll get back to you within 24 hours.</p>
+              <h3 className="text-xl font-bold font-display mb-2" style={{ color: 'var(--text-heading)' }}>Send a Message</h3>
+              <p className="text-sm mb-7" style={{ color: 'var(--text-secondary)' }}>Fill in the form and I&apos;ll get back to you within 24 hours.</p>
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-xs font-medium uppercase tracking-wider mb-2" style={{ color: '#a7f3d0' }}>
-                      Your Name <span style={{ color: '#14b8a6' }}>*</span>
+                    <label htmlFor="name" className="block text-xs font-medium uppercase tracking-wider mb-2" style={{ color: 'var(--label-text)' }}>
+                      Your Name <span style={{ color: 'var(--primary)' }}>*</span>
                     </label>
                     <input
                       id="name"
@@ -140,8 +137,8 @@ export default function ContactForm() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-xs font-medium uppercase tracking-wider mb-2" style={{ color: '#a7f3d0' }}>
-                      Email Address <span style={{ color: '#14b8a6' }}>*</span>
+                    <label htmlFor="email" className="block text-xs font-medium uppercase tracking-wider mb-2" style={{ color: 'var(--label-text)' }}>
+                      Email Address <span style={{ color: 'var(--primary)' }}>*</span>
                     </label>
                     <input
                       id="email"
@@ -158,8 +155,8 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-xs font-medium uppercase tracking-wider mb-2" style={{ color: '#a7f3d0' }}>
-                    Message <span style={{ color: '#14b8a6' }}>*</span>
+                  <label htmlFor="message" className="block text-xs font-medium uppercase tracking-wider mb-2" style={{ color: 'var(--label-text)' }}>
+                    Message <span style={{ color: 'var(--primary)' }}>*</span>
                   </label>
                   <textarea
                     id="message"
@@ -177,30 +174,32 @@ export default function ContactForm() {
                 {/* Status messages */}
                 {status === 'success' && (
                   <div className="flex items-start gap-3 p-4 rounded-xl"
-                    style={{ background: 'rgba(20,184,166,0.1)', border: '1px solid rgba(20,184,166,0.3)' }}>
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ color: '#14b8a6' }}>
+                    style={{ background: 'var(--success-bg)', border: '1px solid var(--success-border)' }}>
+                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ color: 'var(--success-text)' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <div>
-                      <p className="text-sm font-semibold" style={{ color: '#2dd4bf' }}>Message sent successfully!</p>
-                      <p className="text-xs mt-0.5" style={{ color: '#5eead4' }}>You&apos;ll receive a confirmation email shortly. I&apos;ll be in touch within 24 hours.</p>
+                      <p className="text-sm font-semibold" style={{ color: 'var(--success-text)' }}>Message sent successfully!</p>
+                      <p className="text-xs mt-0.5" style={{ color: 'var(--success-sub)' }}>You&apos;ll receive a confirmation email shortly.</p>
                     </div>
                   </div>
                 )}
 
                 {status === 'error' && (
                   <div className="flex items-start gap-3 p-4 rounded-xl"
-                    style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ color: '#f87171' }}>
+                    style={{ background: 'var(--err-bg)', border: '1px solid var(--err-border)' }}>
+                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ color: 'var(--err-text)' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <p className="text-sm" style={{ color: '#fca5a5' }}>{errorMsg}</p>
+                    <p className="text-sm" style={{ color: 'var(--err-text)' }}>{errorMsg}</p>
                   </div>
                 )}
 
                 <button type="submit" disabled={status === 'loading'}
                   className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-medium transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
-                  style={{ background: '#14b8a6', color: '#0a1628', boxShadow: '0 4px 20px rgba(20,184,166,0.25)' }}>
+                  style={{ background: 'var(--primary)', color: 'var(--bg)' }}
+                  onMouseEnter={e => { if (status !== 'loading') (e.currentTarget.style.background = 'var(--primary-dark)') }}
+                  onMouseLeave={e => { (e.currentTarget.style.background = 'var(--primary)') }}>
                   {status === 'loading' ? (
                     <><svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />

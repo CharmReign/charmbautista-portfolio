@@ -9,15 +9,12 @@ import Testimonials from '@/components/Testimonials'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import ScrollTop from '@/components/ScrollTop'
+import ThemeToggle from '@/components/ThemeToggle'
 
 export default function Home() {
   return (
     <>
-      {/* Fixed sidebar — renders independently at z-40 on desktop */}
       <Navbar />
-
-      {/* Page content — offset right of the 256px sidebar on xl screens */}
-      {/* z-index must be LOWER than the sidebar (z-40) so links are never blocked */}
       <div className="relative z-[1] xl:ml-64">
         <main>
           <Hero />
@@ -33,6 +30,7 @@ export default function Home() {
       </div>
 
       <ScrollTop />
+      <ThemeToggle />
     </>
   )
 }

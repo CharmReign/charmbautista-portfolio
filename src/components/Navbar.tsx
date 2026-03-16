@@ -42,13 +42,13 @@ export default function Navbar() {
   return (
     <>
       {/* Mobile top bar */}
-      <div className="xl:hidden fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-4 py-3 border-b"
-        style={{ background: '#0a1628', borderColor: '#134e4a' }}>
-        <span className="font-bold text-lg tracking-wide" style={{ color: '#ccfbf1' }}>
-          {siteData.firstname} <span style={{ color: '#14b8a6' }}>{siteData.lastname}</span>
+      <div className="xl:hidden fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-4 py-3"
+        style={{ background: 'var(--bg-2)', borderBottom: '1px solid var(--border)' }}>
+        <span className="font-bold text-lg tracking-wide" style={{ color: 'var(--text-heading)' }}>
+          {siteData.firstname} <span style={{ color: 'var(--primary)' }}>{siteData.lastname}</span>
         </span>
         <button type="button" onClick={() => setMobileOpen(p => !p)}
-          className="p-1 transition-colors" style={{ color: '#5eead4' }} aria-label="Toggle menu">
+          className="p-1 transition-colors" style={{ color: 'var(--text-secondary)' }} aria-label="Toggle menu">
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             {mobileOpen
               ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -59,16 +59,15 @@ export default function Navbar() {
 
       {/* Mobile backdrop */}
       {mobileOpen && (
-        <div className="xl:hidden fixed inset-0 z-[55]"
-          style={{ background: 'rgba(10,22,40,0.75)' }}
+        <div className="xl:hidden fixed inset-0 z-[55] bg-black/40"
           onClick={() => setMobileOpen(false)} />
       )}
 
       {/* Sidebar */}
       <aside
-        style={{ zIndex: mobileOpen ? 56 : 40, background: '#0a1628', borderColor: 'rgba(20,184,166,0.2)' }}
+        style={{ zIndex: mobileOpen ? 56 : 40, background: 'var(--bg-2)', borderRight: '1px solid var(--border)' }}
         className={[
-          'fixed top-0 left-0 h-full w-64 border-r flex flex-col py-8',
+          'fixed top-0 left-0 h-full w-64 flex flex-col py-8',
           'transition-transform duration-300 ease-in-out xl:translate-x-0',
           mobileOpen ? 'translate-x-0' : '-translate-x-full xl:translate-x-0',
         ].join(' ')}
@@ -76,11 +75,11 @@ export default function Navbar() {
         {/* Logo */}
         <div className="px-6 mb-8 flex-shrink-0">
           <a href="#hero" onClick={e => handleNavClick(e, 'hero')} className="block">
-            <h1 className="text-2xl font-bold tracking-wide" style={{ color: '#ccfbf1' }}>
-              {siteData.firstname} <span style={{ color: '#14b8a6' }}>{siteData.lastname}</span>
+            <h1 className="text-2xl font-bold tracking-wide" style={{ color: 'var(--text-heading)' }}>
+            {siteData.firstname} <span style={{ color: 'var(--primary)' }}>{siteData.lastname}</span>
             </h1>
-            <p className="text-[11px] mt-0.5 tracking-widest uppercase" style={{ color: '#5eead4' }}>
-              Senior Java Backend Engineer
+            <p className="text-[11px] mt-0.5 tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
+              Java Engineer
             </p>
           </a>
         </div>
@@ -93,22 +92,19 @@ export default function Navbar() {
               const isActive = activeSection === id
               return (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={e => handleNavClick(e, id)}
+                  <a href={item.href} onClick={e => handleNavClick(e, id)}
                     style={{
-                      background:   isActive ? 'rgba(20,184,166,0.12)' : 'transparent',
-                      color:        isActive ? '#ccfbf1' : '#5eead4',
+                      background: isActive ? 'var(--badge-bg)' : 'transparent',
+                      color: isActive ? 'var(--primary)' : 'var(--text-secondary)',
                     }}
-                    className="relative flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer select-none hover:bg-teal-900/30"
-                  >
+                    className="relative flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer select-none">
                     {isActive && (
                       <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 rounded-r-full"
-                        style={{ background: '#14b8a6' }} />
+                        style={{ background: 'var(--primary)' }} />
                     )}
                     <svg className="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24"
                       stroke="currentColor" strokeWidth={1.8}
-                      style={{ color: isActive ? '#14b8a6' : '#134e4a' }}>
+                      style={{ color: isActive ? 'var(--primary)' : 'var(--text-muted)' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                     </svg>
                     {item.label}
@@ -121,17 +117,16 @@ export default function Navbar() {
 
         {/* Social links */}
         <div className="px-6 mt-6 flex-shrink-0">
-          <p className="text-[10px] uppercase tracking-widest mb-3" style={{ color: '#134e4a' }}>Connect</p>
+          <p className="text-[10px] uppercase tracking-widest mb-3" style={{ color: 'var(--text-muted)' }}>Connect</p>
           <div className="flex items-center gap-2">
             {socialLinks.map(s => (
               <a key={s.label} href={s.href}
                 target={s.href.startsWith('mailto') ? undefined : '_blank'}
                 rel="noopener noreferrer" aria-label={s.label}
                 className="w-9 h-9 flex items-center justify-center rounded-lg transition-all duration-200"
-                style={{ background: 'rgba(19,78,74,0.4)', color: '#5eead4' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#14b8a6'; (e.currentTarget as HTMLElement).style.color = '#0a1628' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(19,78,74,0.4)'; (e.currentTarget as HTMLElement).style.color = '#5eead4' }}
-              >
+                style={{ background: 'var(--social-bg)', color: 'var(--social-text)', border: '1px solid var(--border)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'var(--primary)'; (e.currentTarget as HTMLElement).style.color = 'var(--bg)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'var(--social-bg)'; (e.currentTarget as HTMLElement).style.color = 'var(--social-text)' }}>
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
                 </svg>

@@ -8,14 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary:       '#14b8a6',
-        'primary-dark':'#0f9688',
-        accent:        '#2dd4bf',
-        dark:          '#0a1628',
-        'dark-2':      '#0d1e33',
-        'dark-3':      '#134e4a',
-        muted:         '#5eead4',
-        light:         '#ccfbf1',
+        primary:        '#0ea5e9',
+        'primary-dark': '#0284c7',
+        accent:         '#38bdf8',
+        dark:           '#ffffff',
+        'dark-2':       '#f0f4f8',
+        'dark-3':       '#cbd5e1',
+        muted:          '#64748b',
+        light:          '#0f172a',
       },
       fontFamily: {
         sans:    ['var(--font-ubuntu)', 'Ubuntu', 'sans-serif'],

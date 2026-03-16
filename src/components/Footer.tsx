@@ -5,26 +5,26 @@ import { siteData } from '@/lib/data'
 export default function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="py-10" style={{ background: '#0a1628', borderTop: '1px solid rgba(19,78,74,0.4)' }}>
+    <footer className="py-10" style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--footer-border)' }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h2 className="text-xl font-display font-bold mb-2">
-              <span style={{ color: '#ccfbf1' }}>{siteData.firstname}</span><span style={{ color: '#14b8a6' }}>{siteData.lastname}</span>
+            <h2 className="text-xl font-display font-bold mb-2" style={{ color: 'var(--text-heading)' }}>
+              {siteData.firstname}<span style={{ color: 'var(--primary)' }}>{siteData.lastname}</span>
             </h2>
-            <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#5eead4' }}>
+            <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--text-secondary)' }}>
               Senior Java / Software Engineer specializing in enterprise banking, fintech, and government systems.
             </p>
           </div>
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#a7f3d0' }}>Quick Links</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--label-text)' }}>Quick Links</h3>
             <ul className="space-y-2">
               {['About', 'Skills', 'Resume', 'Projects', 'Contact'].map(link => (
                 <li key={link}>
                   <button onClick={() => document.getElementById(link.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-sm transition-colors duration-200" style={{ color: '#5eead4' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = '#14b8a6')}
-                    onMouseLeave={e => (e.currentTarget.style.color = '#5eead4')}>
+                    className="text-sm transition-colors duration-200" style={{ color: 'var(--text-secondary)' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--primary)')}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}>
                     {link}
                   </button>
                 </li>
@@ -34,11 +34,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#a7f3d0' }}>Contact</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--label-text)' }}>Contact</h3>
             <ul className="space-y-2">
-              <li className="text-sm" style={{ color: '#5eead4' }}>{siteData.phone}</li>
-              <li className="text-sm" style={{ color: '#5eead4' }}>{siteData.email}</li>
-              <li className="text-sm" style={{ color: '#5eead4' }}>{siteData.location}</li>
+              <li className="text-sm" style={{ color: 'var(--text-secondary)' }}>{siteData.phone}</li>
+              <li className="text-sm" style={{ color: 'var(--text-secondary)' }}>{siteData.email}</li>
+              <li className="text-sm" style={{ color: 'var(--text-secondary)' }}>{siteData.location}</li>
             </ul>
             <div className="flex gap-3 mt-4">
               {[
@@ -47,9 +47,9 @@ export default function Footer() {
               ].map(s => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
                   className="w-9 h-9 flex items-center justify-center rounded-lg transition-all duration-200"
-                  style={{ background: 'rgba(19,78,74,0.4)', color: '#5eead4' }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#14b8a6'; (e.currentTarget as HTMLElement).style.color = '#0a1628' }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(19,78,74,0.4)'; (e.currentTarget as HTMLElement).style.color = '#5eead4' }}>
+                  style={{ background: 'var(--social-bg)', color: 'var(--social-text)', border: '1px solid var(--border)' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'var(--primary)'; (e.currentTarget as HTMLElement).style.color = 'var(--bg)' }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'var(--social-bg)'; (e.currentTarget as HTMLElement).style.color = 'var(--social-text)' }}>
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
                   </svg>
@@ -58,9 +58,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="pt-6 text-center" style={{ borderTop: '1px solid rgba(19,78,74,0.4)' }}>
-          <p className="text-xs" style={{ color: '#134e4a' }}>
-            © {year} <span style={{ color: '#5eead4' }}>CharmReign</span>. All rights reserved.
+        <div className="pt-6 text-center" style={{ borderTop: '1px solid var(--footer-border)' }}>
+          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+            © {year} <span style={{ color: 'var(--text-secondary)' }}>CharmReign</span>. All rights reserved.
           </p>
         </div>
       </div>
